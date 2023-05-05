@@ -11,7 +11,7 @@ import locale from 'element-plus/lib/locale/lang/zh-cn'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 // 基于element-plus二次封装基础组件
 // import LNPlus from '../../../packages'
-// import '../../public/css/index.css'
+import '../../public/css/index.css'
 
 export default {
   ...DefaultTheme,

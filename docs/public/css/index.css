@@ -7,6 +7,7 @@
   --vp-c-brand-darker: #454ce1;
   --demoblock-border: #e7e7e7;
   --vp-code-block-bg: #f9fafb;
+  /* --vp-home-hero-name-color: red; */
 }
 
 .demo-block .meta {
@@ -49,7 +50,7 @@ html.dark {
   border-top: none;
 }
 .VPContent .VPDoc .container .content {
-  padding: 0;
+  padding: 0 10px;
 }
 .VPNav {
   z-index: 41 !important;
