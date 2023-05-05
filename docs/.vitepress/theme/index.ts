@@ -10,7 +10,7 @@ import locale from 'element-plus/lib/locale/lang/zh-cn'
 // 图标并进行全局注册
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 // 基于element-plus二次封装基础组件
-import TuiPlus from '../../../packages'
+import LNPlus from '../../../packages'
 import '../../public/css/index.css'
 
 export default {
@@ -26,7 +26,7 @@ export default {
       ctx.app.component(key, component)
     }
     // 全局注册基础组件
-    ctx.app.use(TuiPlus)
+    ctx.app.use(LNPlus)
     useComponents(ctx.app)
     // app.component('Demo', Demo)
     // app.component('DemoBlock', DemoBlock)

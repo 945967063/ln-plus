@@ -18,7 +18,6 @@
     "serve": "vite --mode dev",
     "build:dev": "vue-tsc --noEmit && vite build --mode dev",
     "lib": "vite build",
-    "deploy": "deploy.sh",
     "docs:dev": "pnpm run register:components && vitepress dev docs",
     "docs:build": "pnpm run register:components && vitepress build docs",
     "register:components": "vitepress-rc"
@@ -69,7 +68,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wocwin/t-ui-plus.git"
+    "url": "https://github.com/945967063/l-plus.git"
   },
   "homepage": "https://wocwin.github.io/t-ui-plus/",
   "keywords": [
