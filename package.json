@@ -18,6 +18,7 @@
     "serve": "vite --mode dev",
     "build:dev": "vue-tsc --noEmit && vite build --mode dev",
     "lib": "vite build",
+    "deploy": "deploy.sh",
     "docs:dev": "pnpm run register:components && vitepress dev docs",
     "docs:build": "pnpm run register:components && vitepress build docs",
     "register:components": "vitepress-rc"
