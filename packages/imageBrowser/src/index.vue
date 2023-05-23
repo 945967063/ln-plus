@@ -11,7 +11,8 @@
  */
 
 import OpenSeadragon from 'openseadragon'
-import { Sdpc } from 'sdpc-web-ts'
+// var Sdpc = require('sdpc-web-ts')
+import { Sdpc } from 'sdpc-web-ts/src/sdpc/sdpc'
 import { PicHead } from 'sdpc-web-ts/dist/src/sdpc/picHead'
 import { SliceSource } from 'sdpc-web-ts/dist/src/sdpc/sdpc'
 import {
@@ -95,8 +96,10 @@ export default defineComponent({
     async function createViewer(
       slideUrl: SliceSource
     ): Promise<OpenSeadragon.Viewer | undefined> {
+      console.log(Sdpc, 'Sdpc')
+
       sdpc.value = new Sdpc(
-        slideUrl,
+        slideUrl as any,
         hevcDecoderUrl.value,
         hevcDecoderWasmUrl.value
       )

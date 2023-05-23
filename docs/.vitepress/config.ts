@@ -18,12 +18,29 @@ export default defineConfig({
         text: '安装指南',
         link: '/components/',
       },
-      { text: '基础组件', link: '/components/TSelect/base.md' },
+      { text: '基础组件', link: '/components/TButton/base.md' },
       {
         text: 'GitHub地址',
         link: 'https://github.com/945967063/l-plus',
       },
     ],
+    sidebar: {
+      '/components': [
+        {
+          text: '常用组件',
+          items: [{ text: '阅片组件', link: '/components/TButton/base.md' }],
+        },
+        {
+          text: '复杂组件',
+          items: [
+            // {
+            //   text: '条件查询组件',
+            //   link: '/components/TQueryCondition/base.md',
+            // },
+          ],
+        },
+      ],
+    },
   },
   markdown: {
     headers: {

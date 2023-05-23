@@ -1,44 +1,46 @@
-# 按钮组件(内置防抖功能)
+# 阅片组件
 
 ### 基础用法
 
-:::demo `继承el-button所有属性` <br/>新增`time`属性（多少时间内点击；默认 1 秒）<br/>
+:::demo
 
 ```vue
 <template>
-  <t-layout-page class="t_button_demo">
-    <t-layout-page-item>
-      <div style="display:flex;align-items: center;">
-        <div style="width:140px;font-weight:700;">输入防抖时间：</div>
-        <el-input-number
-          style="width:240px;"
-          v-model="time"
-          placeholder="请输入防抖时间（毫秒）"
-          :min="1000"
-          :max="10000"
-          :controls="false"
-          @change="handleChange"
-        />
-      </div>
-      <t-button
-        style="margin-top:15px;"
-        color="#626aef"
-        :time="time"
-        @click="exportExcel"
-        >导出</t-button
-      >
-    </t-layout-page-item>
-  </t-layout-page>
+  <el-form :inline="true">
+    <el-form-item>
+      <el-input v-model="url" placeholder="请输入切片地址" />
+    </el-form-item>
+    <el-form-item>
+      <el-button type="primary" @click="submit">确认</el-button>
+    </el-form-item>
+  </el-form>
+  <div :style="{ width: '100%', height: '500px' }">
+    <LImageBrowser
+      ref="lImageBrowser"
+      :hevcDecoderUrl="hevcDecoderUrl"
+      :hevcDecoderWasmUrl="hevcDecoderWasmUrl"
+    />
+  </div>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
-const time = ref(1000)
-const handleChange = (val) => {
-  console.log('输入框的值：', val)
+import { onMounted, ref } from 'vue'
+const url = ref(
+  'https://web-rcp-image.oss-cn-shenzhen.aliyuncs.com/Slice/07be0fd1-cd15-40f4-94c8-5483406c2ade20221119_144132_18_18.sdpc?Expires=1684869321&OSSAccessKeyId=LTAI5tE49rrKU9iAxwDdzMcD&Signature=4DCA2U%2F5RhAGi%2FDlL2SrFiteDhs%3D'
+)
+const hevcDecoderUrl = 'https://945967063.github.io/ln-plus/hevc.js'
+const hevcDecoderWasmUrl = 'https://945967063.github.io/ln-plus/hevc.wasm'
+const lImageBrowser = ref()
+const submit = () => {
+  if (!url.value) return
+  lImageBrowser.value.destroyViewer()
+  lImageBrowser.value.createViewer(url.value)
 }
-const exportExcel = () => {
-  console.log('点击事件')
-}
+onMounted(() => {
+  // lImageBrowser.value &&
+  //   lImageBrowser.value.createViewer(
+  //     'https://web-rcp-image.oss-cn-shenzhen.aliyuncs.com/Slice/07be0fd1-cd15-40f4-94c8-5483406c2ade20221119_144132_18_18.sdpc?Expires=1684869321&OSSAccessKeyId=LTAI5tE49rrKU9iAxwDdzMcD&Signature=4DCA2U%2F5RhAGi%2FDlL2SrFiteDhs%3D'
+  //   )
+})
 </script>
 ```
 

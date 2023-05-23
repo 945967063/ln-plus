@@ -26,6 +26,15 @@ export default {
       ctx.app.component(key, component)
     }
     // 全局注册基础组件
+    ctx.app.mixin({
+      async mounted() {
+        //你自己的插件地址
+        import('../../../packages').then((module) => {
+          console.log('module', module)
+          ctx.app.use(module.default)
+        })
+      },
+    })
     // ctx.app.use(LNPlus)
     useComponents(ctx.app)
     // app.component('Demo', Demo)
